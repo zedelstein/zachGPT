@@ -1,0 +1,30 @@
+{
+  "name": "zachgpt",
+  "version": "1.0.0",
+  "private": true,
+  "description": "zachGPT \u2014 an interactive AI portfolio for Zachary Edelstein. Analytics, Business Intelligence & Data Governance.",
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint",
+    "typecheck": "tsc --noEmit",
+    "kb:check": "node --experimental-strip-types --import ./scripts/register.mjs scripts/kb-check.ts",
+    "interview:new": "node --experimental-strip-types --import ./scripts/register.mjs scripts/generate-interview.ts"
+  },
+  "dependencies": {
+    "@anthropic-ai/sdk": "^0.131.0",
+    "next": "^16.3.8",
+    "react": "^19.3.0",
+    "react-dom": "^19.3.0",
+    "zod": "^4.6.5"
+  },
+  "devDependencies": {
+    "@tailwindcss/postcss": "^4.3.3",
+    "@types/node": "^24.0.0",
+    "@types/react": "^19.3.0",
+    "@types/react-dom": "^19.3.0",
+    "tailwindcss": "^4.3.3",
+    "typescript": "^5.9.3"
+  }
+}

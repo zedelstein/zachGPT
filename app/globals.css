@@ -1,0 +1,217 @@
+@import "tailwindcss";
+
+/*
+  Design tokens — "Statcast" palette.
+
+  Light, data-dense surfaces under a dark navy chrome, with a saturated
+  categorical palette and a blue→red diverging scale used the way a percentile
+  bar uses it: blue is low, red is high. Colour carries meaning here; it is not
+  decoration. Every hue below is paired with a soft fill and a line tint so a
+  category reads consistently as a chip, a bar and a cell.
+*/
+@theme {
+  --color-ground: #eef1f6;
+  --color-surface: #ffffff;
+  --color-raised: #f3f5f9;
+  --color-ink: #0c1521;
+  --color-ink-soft: #33404f;
+  --color-muted: #637182;
+  --color-faint: #93a1b0;
+  --color-line: #dce3ec;
+  --color-line-strong: #bfcbd9;
+
+  /* Dark chrome */
+  --color-nav: #0a1726;
+  --color-nav-soft: #16293f;
+  --color-nav-line: #1f3550;
+  --color-nav-text: #c4d2e2;
+
+  /* Primary action / link */
+  --color-accent: #1366d6;
+  --color-accent-soft: #e4eefc;
+  --color-accent-line: #a9cbf6;
+
+  /* Categorical scale */
+  --color-hot: #d22d49;
+  --color-hot-soft: #fce7ea;
+  --color-hot-line: #f2b6c0;
+
+  --color-warm: #e07c12;
+  --color-warm-soft: #fdf0df;
+  --color-warm-line: #f5cf9c;
+
+  --color-cool: #3661ad;
+  --color-cool-soft: #e6ecf8;
+  --color-cool-line: #b3c5e6;
+
+  --color-teal: #0d9488;
+  --color-teal-soft: #dcf4f1;
+  --color-teal-line: #9adbd3;
+
+  --color-purple: #7449c6;
+  --color-purple-soft: #eee9fb;
+  --color-purple-line: #c9b6ee;
+
+  /* Semantic aliases used across the site */
+  --color-data: #0d9488;
+  --color-data-soft: #dcf4f1;
+  --color-flag: #b86a0c;
+  --color-flag-soft: #fdf0df;
+
+  --font-sans: ui-sans-serif, -apple-system, "Segoe UI", Roboto, "Helvetica Neue",
+    Arial, "Noto Sans", sans-serif;
+  --font-mono: ui-monospace, "SF Mono", "JetBrains Mono", Menlo, Consolas, monospace;
+
+  --ease-out-soft: cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+:root {
+  color-scheme: light;
+  --nav-height: 58px;
+}
+
+* {
+  border-color: var(--color-line);
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: calc(var(--nav-height) + 24px);
+  -webkit-text-size-adjust: 100%;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+body {
+  background: var(--color-ground);
+  color: var(--color-ink);
+  font-family: var(--font-sans);
+  font-synthesis-weight: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Numbers must not jitter between values. */
+.tnum {
+  font-variant-numeric: tabular-nums;
+  font-feature-settings: "tnum" 1;
+}
+
+/* Stat readouts: monospaced digits, the way a scoreboard sets them. */
+.stat {
+  font-family: var(--font-mono);
+  font-variant-numeric: tabular-nums;
+  letter-spacing: -0.03em;
+}
+
+/* Small uppercase label, used for section eyebrows and table headers. */
+.label {
+  font-family: var(--font-mono);
+  font-size: 0.6875rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+:where(a, button, [role="button"], input, textarea, select, summary, [tabindex]):focus-visible {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 2px;
+  border-radius: 3px;
+}
+
+::selection {
+  background: var(--color-accent-soft);
+  color: var(--color-ink);
+}
+
+@keyframes rise {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+.rise {
+  animation: rise 0.5s var(--ease-out-soft) both;
+}
+
+/* Coverage/percentile bars fill from zero on first paint. */
+@keyframes grow {
+  from {
+    transform: scaleX(0);
+  }
+  to {
+    transform: scaleX(1);
+  }
+}
+
+.grow {
+  transform-origin: left center;
+  animation: grow 0.7s var(--ease-out-soft) both;
+}
+
+@keyframes slide-up {
+  from {
+    transform: translateY(100%);
+  }
+  to {
+    transform: none;
+  }
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.panel-enter {
+  animation: fade-in 0.2s var(--ease-out-soft) both;
+}
+
+@media (max-width: 767px) {
+  .panel-sheet {
+    animation: slide-up 0.28s var(--ease-out-soft) both;
+  }
+}
+
+.thin-scroll {
+  scrollbar-width: thin;
+  scrollbar-color: var(--color-line-strong) transparent;
+}
+.thin-scroll::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+.thin-scroll::-webkit-scrollbar-thumb {
+  background: var(--color-line-strong);
+  border-radius: 999px;
+}
+.thin-scroll::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+@media print {
+  .no-print {
+    display: none !important;
+  }
+  body {
+    background: #fff;
+  }
+}
