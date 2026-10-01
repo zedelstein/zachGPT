@@ -1,6 +1,7 @@
 import {
   about,
   capabilities,
+  education,
   caseStudies,
   disciplines,
   howIWork,
@@ -63,6 +64,17 @@ export function buildKnowledgeBase(): Chunk[] {
   });
 
   chunks.push({
+    id: "bio:education",
+    type: "bio",
+    title: "Education & certifications",
+    href: "/resume",
+    body: `Education, school and academic background. Zach studied at New York University, where he earned his degree. Education and certifications: ${education
+      .map((e) => `${e.credential}, ${e.institution}${e.year ? ` (${e.year})` : ""}`)
+      .join("; ")}. ${profile.name} is based in ${profile.location}. No other degrees, certifications or credentials are documented — do not state any.`,
+    meta: meta({ topic: "education" }),
+  });
+
+  chunks.push({
     id: "targets:roles",
     type: "targets",
     title: "Target roles",
@@ -77,19 +89,18 @@ export function buildKnowledgeBase(): Chunk[] {
     const caps = role.capabilities
       .map((id) => capabilities.find((c) => c.id === id)?.label ?? id)
       .join(", ");
-    const companyLine = role.companyNeedsReview ? "Earlier role" : role.company;
-    const companyDetail = role.companyNeedsReview
-      ? "Employer name is not recorded in this portfolio."
-      : role.company;
     chunks.push({
       id: `role:${role.id}`,
       type: "role",
-      title: `${companyLine} — ${role.title}`,
+      title: `${role.company} — ${role.title}`,
       href: `/#role-${role.id}`,
       body: [
-        `${role.title} at ${companyDetail}. ${role.dates}${role.datesNeedReview ? " (approximate dates)" : ""}. Industry: ${role.industry}.`,
+        `${role.title} at ${role.company} (${role.location}). ${role.dates}. Industry: ${role.industry}.`,
         role.focus,
         `Responsibilities: ${role.responsibilities.join("; ")}.`,
+        role.metrics?.length
+          ? `Documented figures for this role (stated on Zach's resume — quote these exactly and never extrapolate from them): ${role.metrics.join("; ")}.`
+          : "No quantified outcome figures are documented for this role.",
         `Tools used in this role: ${role.tools.join(", ")}.`,
         `Capabilities materially used in this role: ${caps}.`,
       ].join("\n"),
@@ -165,7 +176,7 @@ export function buildKnowledgeBase(): Chunk[] {
         .map((id) => {
           const r = roleById.get(id);
           if (!r) return null;
-          const company = r.companyNeedsReview ? "an earlier role" : r.company;
+          const company = r.company;
           return `${company} — ${r.title} (${r.dates})`;
         })
         .filter(Boolean)
@@ -210,7 +221,7 @@ export function buildKnowledgeBase(): Chunk[] {
       .map((id) => {
         const r = roleById.get(id);
         if (!r) return null;
-        return `${r.companyNeedsReview ? "an earlier role" : r.company} (${r.title})`;
+        return `${r.company} (${r.title})`;
       })
       .filter(Boolean)
       .join("; ");
@@ -238,7 +249,7 @@ export function buildKnowledgeBase(): Chunk[] {
       title: `Capability — ${cap.label}`,
       href: "/#experience",
       body: `Capability: ${cap.label}. ${cap.blurb} Materially used in ${owning.length} of ${roles.length} roles: ${owning
-        .map((r) => `${r.companyNeedsReview ? "an earlier role" : r.company} — ${r.title}`)
+        .map((r) => `${r.company} — ${r.title}`)
         .join("; ")}.`,
       meta: meta({
         topic: "capability",

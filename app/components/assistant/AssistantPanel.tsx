@@ -35,7 +35,7 @@ function HighlightBridge() {
   const roleNames = focus.roleIds
     .map((id) => roleById.get(id))
     .filter(Boolean)
-    .map((r) => (r!.companyNeedsReview ? r!.title : r!.company));
+    .map((r) => (r!.company));
 
   const hasAnything =
     roleNames.length > 0 || focus.technologies.length > 0 || focus.capabilities.length > 0;

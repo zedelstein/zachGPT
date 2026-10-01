@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { about, capabilityById, profile, roles, techGroups } from "@/content";
+import { about, capabilityById, education, profile, roles, techGroups } from "@/content";
 import { AskButton } from "@/app/components/AskButton";
 import { PrintButton } from "@/app/components/PrintButton";
 
@@ -43,7 +43,7 @@ export default function ResumePage() {
         </header>
 
         <section className="border-b border-line py-5">
-          <h2 className="text-[0.6875rem] font-semibold uppercase tracking-[0.12em] text-faint">
+          <h2 className="label text-faint">
             Summary
           </h2>
           <p className="mt-2.5 text-[0.875rem leading-relaxed] text-ink-soft">
@@ -52,7 +52,7 @@ export default function ResumePage() {
         </section>
 
         <section className="border-b border-line py-5">
-          <h2 className="text-[0.6875rem] font-semibold uppercase tracking-[0.12em] text-faint">
+          <h2 className="label text-faint">
             Experience
           </h2>
           <ol className="mt-3 space-y-5">
@@ -60,12 +60,14 @@ export default function ResumePage() {
               <li key={role.id} className="break-inside-avoid">
                 <div className="flex flex-wrap items-baseline justify-between gap-x-4">
                   <h3 className="text-[0.9375rem] font-semibold text-ink">
-                    {role.companyNeedsReview ? "Employer to confirm" : role.company}
+                    {role.company}
                   </h3>
                   <p className="text-[0.8125rem] text-muted tnum">{role.dates}</p>
                 </div>
                 <p className="text-[0.875rem] font-medium text-accent">{role.title}</p>
-                <p className="mt-1 text-[0.8125rem] text-faint">{role.industry}</p>
+                <p className="mt-1 text-[0.8125rem] text-faint">
+                  {role.location} · {role.industry}
+                </p>
                 {role.emphasis === "primary" ? (
                   <ul className="mt-2 space-y-1">
                     {role.responsibilities.map((item) => (
@@ -87,7 +89,7 @@ export default function ResumePage() {
         </section>
 
         <section className="border-b border-line py-5">
-          <h2 className="text-[0.6875rem] font-semibold uppercase tracking-[0.12em] text-faint">
+          <h2 className="label text-faint">
             Technical skills
           </h2>
           <dl className="mt-3 space-y-2.5">
@@ -117,8 +119,21 @@ export default function ResumePage() {
           </dl>
         </section>
 
+        <section className="border-b border-line py-5">
+          <h2 className="label text-faint">Education & certifications</h2>
+          <ul className="mt-2.5 space-y-1.5">
+            {education.map((item) => (
+              <li key={item.institution} className="flex flex-wrap items-baseline gap-x-2">
+                <span className="text-[0.875rem] font-semibold text-ink">{item.institution}</span>
+                <span className="text-[0.8125rem] text-ink-soft">{item.credential}</span>
+                {item.year && <span className="stat text-[0.8125rem] text-muted">{item.year}</span>}
+              </li>
+            ))}
+          </ul>
+        </section>
+
         <section className="py-5">
-          <h2 className="text-[0.6875rem] font-semibold uppercase tracking-[0.12em] text-faint">
+          <h2 className="label text-faint">
             Target roles
           </h2>
           <p className="mt-2 text-[0.8125rem] leading-relaxed text-ink-soft">

@@ -56,7 +56,7 @@ export function ExperienceList() {
                   {role.title}
                   <span className="text-muted">
                     {" · "}
-                    {role.companyNeedsReview ? "Employer to confirm" : role.company}
+                    {role.company}
                   </span>
                 </p>
                 <p className="mt-0.5 text-[0.8125rem] leading-snug text-muted">{role.focus}</p>

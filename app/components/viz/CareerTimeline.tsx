@@ -85,7 +85,7 @@ export function CareerTimeline({ now }: { now: number }) {
                     </p>
                     <p className="flex items-center justify-end gap-1.5 truncate text-[0.6875rem] leading-tight text-muted">
                       <span aria-hidden className="h-2 w-2 shrink-0 rounded-[2px]" style={{ background: tone.solid }} />
-                      {role.companyNeedsReview ? "Employer to confirm" : role.company}
+                      {role.company}
                     </p>
                   </div>
 
@@ -119,7 +119,6 @@ export function CareerTimeline({ now }: { now: number }) {
                     >
                       <span className="stat truncate text-[0.6875rem] font-semibold">
                         {compactDates(role.dates)}
-                        {role.datesNeedReview ? " ·" : ""}
                       </span>
                     </button>
                   </div>
@@ -173,7 +172,7 @@ export function CareerTimeline({ now }: { now: number }) {
                 </p>
                 <p className="mt-0.5 text-sm font-medium text-ink">{role.title}</p>
                 <p className="text-[0.8125rem] text-ink-soft">
-                  {role.companyNeedsReview ? "Employer to confirm" : role.company}
+                  {role.company}
                 </p>
               </button>
             </li>
@@ -208,7 +207,7 @@ export function CareerTimeline({ now }: { now: number }) {
               <div>
                 <h3 className="text-base font-semibold text-ink">{active.title}</h3>
                 <p className="mt-0.5 text-sm text-ink-soft">
-                  {active.companyNeedsReview ? "Employer to confirm" : active.company}
+                  {active.company}
                   <span className="mx-1.5 text-faint">·</span>
                   <span className="tnum">{active.dates}</span>
                 </p>

@@ -52,13 +52,13 @@ export function CapabilityMatrix() {
                       onClick={() =>
                         setManualFocus(
                           { roleIds: [role.id], caseStudies: role.caseStudies },
-                          role.companyNeedsReview ? role.title : role.company,
+                          role.company,
                         )
                       }
                       className={`mx-auto block w-full px-1 pb-1.5 text-center transition-opacity ${
                         hasHighlight && !isOn ? "opacity-35" : "opacity-100"
                       }`}
-                      title={`${role.title} — ${role.companyNeedsReview ? "employer to confirm" : role.company} (${role.dates})`}
+                      title={`${role.title} — ${role.company} (${role.dates})`}
                     >
                       <span
                         className={`block text-[0.6875rem] font-semibold leading-tight ${
@@ -138,7 +138,7 @@ export function CapabilityMatrix() {
                       >
                         {filled ? (
                           <span
-                            title={`${cap.label} — ${role.title}, ${role.companyNeedsReview ? "earlier role" : role.company}`}
+                            title={`${cap.label} — ${role.title}, ${role.company}`}
                             className={`mx-auto block h-5 w-full max-w-[2.25rem] rounded-[4px] transition-all duration-300 ${
                               cellOn || isHovered ? "scale-105 shadow-sm" : ""
                             } ${cellDim ? "opacity-20" : "opacity-100"}`}

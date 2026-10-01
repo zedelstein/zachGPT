@@ -75,9 +75,9 @@ export const ROLE_TONE: Record<string, ToneName> = {
   uhs: "red",
   ziffdavis: "orange",
   "stella-rising": "purple",
-  independent: "teal",
-  "analytics-lead": "blue",
-  "seo-analyst": "blue",
+  stratega: "teal",
+  majux: "purple",
+  gen3: "blue",
 };
 
 /** Technology group id → tone. */
@@ -86,6 +86,8 @@ export const GROUP_TONE: Record<string, ToneName> = {
   query: "purple",
   platforms: "teal",
   digital: "orange",
+  modeling: "blue",
+  ai: "red",
 };
 
 /** Work-sample category → tone. */

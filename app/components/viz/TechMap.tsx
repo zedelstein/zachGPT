@@ -181,7 +181,7 @@ export function TechMap() {
                       return (
                         <li key={id} className="text-[0.8125rem] leading-snug">
                           <span className="font-medium text-ink">
-                            {role.companyNeedsReview ? "Earlier role" : role.company}
+                            {role.company}
                           </span>
                           <span className="text-muted"> — {role.title}</span>
                         </li>

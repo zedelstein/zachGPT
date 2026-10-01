@@ -18,6 +18,11 @@ const probes = [
   "Has he worked with Snowflake or BigQuery?",
   "What is his experience with reconciliation and discrepancies?",
   "Does he have experience with Adobe Analytics?",
+  "Has he done marketing mix modeling?",
+  "What AI work has Zach done?",
+  "Tell me about his experimentation and CRO experience.",
+  "Where did he go to school?",
+  "What did he do at Universal Health Services?",
   "What's his favourite restaurant?",
 ];
 

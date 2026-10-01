@@ -42,7 +42,7 @@ function genericConfig(slug: string): InterviewConfig {
         .map((id) => {
           const role = roleById.get(id);
           if (!role) return null;
-          return role.companyNeedsReview ? role.title : role.company;
+          return role.company;
         })
         .filter(Boolean)
         .join(", ")}.`,

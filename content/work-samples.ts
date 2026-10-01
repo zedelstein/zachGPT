@@ -28,7 +28,7 @@ export const workSamples: WorkSample[] = [
     detail:
       "Executive dashboards fail more often from layout than from data. This recreation shows the pattern I default to — a small number of governed KPIs with period-over-period context at the top, a single trend view that explains the direction, and a breakdown table one scroll down for the follow-up question. Every KPI tile is traceable to a written definition, so a number on the dashboard and a number in a board deck cannot diverge.",
     recreated: true,
-    roleIds: ["independent", "ziffdavis", "publicis"],
+    roleIds: ["stratega", "ziffdavis", "publicis"],
     skills: ["Dashboard design", "Data visualization", "KPI governance", "Stakeholder reporting"],
   },
   {
@@ -41,7 +41,7 @@ export const workSamples: WorkSample[] = [
     detail:
       "When a stakeholder says a dashboard looks wrong, the useful first move is a row-level comparison between the source and the reporting layer at the same grain. This pattern groups both sides to a common key, joins them, and returns only the periods where the variance exceeds a tolerance — which turns 'the dashboard is off' into a specific, investigable list. Table and column names below are generic placeholders.",
     recreated: true,
-    roleIds: ["publicis", "independent"],
+    roleIds: ["publicis", "stratega"],
     skills: ["SQL", "Data QA", "Data reconciliation"],
     code: `-- Portfolio recreation using sample data and generic object names.
 -- Compare a metric at source grain vs. the reporting layer, flag variances.
@@ -95,7 +95,7 @@ order by abs(coalesce(r.reported_events, 0) - coalesce(s.source_events, 0)) desc
     detail:
       "A written QA pass is what separates reporting people trust from reporting people quietly stop opening. This is the recreation of the checklist I apply: row-count and totals reconciliation against source, join-fan-out detection, filter and default-state verification, date-grain and timezone consistency, refresh and freshness confirmation, null and unknown-member handling, and a definition review against the KPI dictionary.",
     recreated: true,
-    roleIds: ["publicis", "independent"],
+    roleIds: ["publicis", "stratega"],
     skills: ["Data QA", "Analytics documentation", "KPI governance"],
     code: `Portfolio recreation using sample data.
 
@@ -120,7 +120,7 @@ PRE-RELEASE DASHBOARD QA
     detail:
       "Most 'the numbers don't match' problems are definition problems, not data problems. A KPI dictionary entry fixes the name, the owner, the exact calculation, the grain, the inclusions and exclusions, and the known caveats. Once that exists, reconciliation stops being an argument and becomes a lookup. This is the generic template, filled with sample values.",
     recreated: true,
-    roleIds: ["publicis", "ziffdavis", "independent"],
+    roleIds: ["publicis", "ziffdavis", "stratega"],
     skills: ["KPI governance", "Data governance", "Analytics documentation"],
     code: `Portfolio recreation using sample data.
 
@@ -172,8 +172,8 @@ REVIEWED          Quarterly, with the business owner`,
     detail:
       "Healthcare digital analytics gets more useful the moment it stops reporting sessions and starts reporting the journey a prospective patient takes. This recreation maps each stage to the question it answers and the KPI that answers it, which is also what makes the reporting legible to executives outside the analytics function. No patient-level or protected health information is represented — the framework is structural only.",
     recreated: true,
-    roleIds: ["uhs"],
-    skills: ["Healthcare analytics", "Digital analytics", "KPI development", "Executive reporting"],
+    roleIds: ["uhs", "stella-rising"],
+    skills: ["Healthcare analytics", "Digital analytics", "KPI development", "Executive reporting", "Marketing mix modeling"],
   },
   {
     id: "ga4-migration-plan",
@@ -198,7 +198,7 @@ REVIEWED          Quarterly, with the business owner`,
     detail:
       "A funnel chart that lists stage volumes tells a stakeholder what happened; one that surfaces step-to-step drop-off tells them where to act. This recreation puts the two side by side with sample data. The redesign changes no underlying numbers — only which comparison the layout makes easy, which is usually the highest-leverage thing a dashboard can change.",
     recreated: true,
-    roleIds: ["independent", "uhs"],
+    roleIds: ["stratega", "uhs"],
     skills: ["Data visualization", "Dashboard design", "Conversion analysis"],
   },
   {

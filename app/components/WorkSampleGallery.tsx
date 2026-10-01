@@ -202,7 +202,7 @@ export function WorkSampleGallery() {
                       return (
                         <li key={id} className="text-[0.8125rem] text-ink-soft">
                           <span className="font-medium text-ink">
-                            {role.companyNeedsReview ? "Earlier role" : role.company}
+                            {role.company}
                           </span>{" "}
                           — {role.title}
                         </li>

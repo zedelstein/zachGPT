@@ -77,7 +77,7 @@ export const caseStudies: CaseStudy[] = [
     summary:
       "Replacing per-brand analytics improvisation with a shared measurement framework across a portfolio of more than 20 digital brands.",
     context:
-      "As Director, Analytics & Insights at Ziff Davis, I supported analytics modernization across a portfolio of more than 20 digital brands. The organization generated large volumes of audience, content, product, acquisition, and revenue data.",
+      "As Director, Insights & Analytics at Ziff Davis, I supported analytics modernization across a portfolio of more than 20 digital brands. The organization generated large volumes of audience, content, product, acquisition, and revenue data.",
     problem:
       "When many brands operate independently, analytics becomes fragmented. Different teams can develop different KPI definitions, different dashboards, different reporting conventions, inconsistent implementations, and incompatible interpretations of performance. That makes portfolio-level analysis difficult.",
     environment: [
@@ -99,11 +99,14 @@ export const caseStudies: CaseStudy[] = [
       "Revenue reporting",
       "Go-to-market reporting",
       "Executive analytics",
+      "An enterprise-wide A/B testing practice",
+      "Internal product development for proprietary analytics tools",
+      "An AI-powered content generation engine trained on behavioural and SEO data",
     ],
     sections: [
       {
         heading: "Executive analytics",
-        body: "I also supported senior leadership with analytical work used to evaluate strategic initiatives and potential acquisitions, including analyses related to large-scale M&A opportunities. Transaction details are confidential and are not described here.",
+        body: "I also provided the CEO with media analytics support for nine-figure M&A evaluations — assessing traffic profiles, SEO competence, growth potential and strategic fit. Measurement work across the portfolio influenced more than $10M in marketing spend decisions. Transaction details are confidential and are not described here.",
       },
     ],
     outcome:
@@ -134,20 +137,21 @@ export const caseStudies: CaseStudy[] = [
   {
     slug: "executive-bi-consulting",
     title: "Executive BI & Analytics Consulting",
-    company: "Independent",
-    roleId: "independent",
+    company: "Stratega",
+    roleId: "stratega",
     dates: "January 2024 – June 2025",
     industry: "Media, Utilities, Higher Education, Financial Services, Real Estate",
     summary:
       "Turning raw operational and marketing data into repeatable reporting frameworks for organizations across five industries.",
     context:
-      "From 2024 to 2025 I worked independently as an analytics consultant across organizations and industries including media, utilities, higher education, financial services, and real estate.",
+      "From January 2024 to June 2025 I ran Stratega, an independent analytics consultancy, across organizations and industries including media, utilities, energy, higher education, financial services, and real estate. Engagements ranged from executive dashboards and KPI frameworks to marketing mix models, ETL and data migration, and enterprise AI adoption.",
     problem:
       "Organizations often had plenty of data but lacked reporting systems that translated it into clear operational or executive information. The recurring questions were: What should we measure? Which KPIs actually matter? How should reporting be structured? How do we reconcile conflicting data? How do we make dashboards useful to business users?",
     environment: [
       "Five industries, each with different data maturity",
       "SQL, Tableau, Power BI, GA4",
-      "Cloud data platforms",
+      "Cloud data platforms — Snowflake, BigQuery, AWS",
+      "Optimizely, VWO, Hotjar, FullStory",
       "Business stakeholders rather than analytics teams as the primary audience",
     ],
     approach:
@@ -163,9 +167,13 @@ export const caseStudies: CaseStudy[] = [
       "Content analytics",
       "User-behavior analysis",
       "Conversion reporting",
+      "Marketing mix models and multi-touch attribution for healthcare clients",
+      "Forecasting and segmentation automation in Python",
+      "CRO and experimentation programmes using Optimizely and VWO",
+      "Enterprise AI strategy, including custom GPT instances and knowledge-management tools",
     ],
     outcome:
-      "The work transformed raw operational and marketing data into repeatable reporting frameworks that stakeholders could use to understand performance and make decisions.",
+      "The work transformed raw operational and marketing data into repeatable reporting frameworks that stakeholders could use to understand performance and make decisions. Two engagements are named on my resume: Exelon (2024–2025), where I streamlined data architecture and deployed ML models for energy demand forecasting to support workforce and resource planning; and University of Phoenix (2025), where I built predictive student-success models and integrated them into executive dashboards. Python automation of forecasting and segmentation workflows reduced manual analytics turnaround by 30%.",
     skills: [
       "Power BI",
       "Tableau",
@@ -175,6 +183,9 @@ export const caseStudies: CaseStudy[] = [
       "KPI development",
       "Stakeholder reporting",
       "Analytics consulting",
+      "Marketing mix modeling",
+      "Predictive modeling",
+      "Python",
     ],
     diagram: {
       kind: "grid",
@@ -193,17 +204,18 @@ export const caseStudies: CaseStudy[] = [
     title: "Healthcare Digital Analytics & Experimentation",
     company: "Universal Health Services",
     roleId: "uhs",
-    dates: "2020 – 2021",
+    dates: "August 2018 – August 2020",
     industry: "Healthcare",
     summary:
       "Connecting digital behaviour on healthcare properties to patient-acquisition objectives, and testing the changes meant to improve it.",
     context:
-      "At Universal Health Services I worked in healthcare digital analytics. The work focused on understanding how prospective patients interacted with digital properties and how digital experiences influenced acquisition and conversion.",
+      "At Universal Health Services I was Analytics Lead, working in healthcare digital analytics across a network of 350+ acute and behavioral health facilities. The work focused on understanding how prospective patients interacted with digital properties and how digital experiences influenced acquisition and conversion.",
     problem:
       "Stakeholders needed answers to questions web metrics alone don't settle: How are people discovering healthcare properties? Which digital experiences generate engagement? Where do users abandon important journeys? Which site changes improve conversion? How should executives understand digital performance?",
     environment: [
-      "Healthcare digital properties",
-      "Search, acquisition and site-behaviour data",
+      "350+ acute and behavioral health facilities",
+      "SEO, paid search, CRM and offline campaign data",
+      "Claims-style data and call centre metrics",
       "A/B testing programme",
       "Executive stakeholders outside the analytics function",
     ],
@@ -217,7 +229,10 @@ export const caseStudies: CaseStudy[] = [
       "Site behaviour analysis",
       "Conversion analysis",
       "Experimentation / A/B testing",
-      "Executive reporting",
+      "Marketing mix models evaluating ROI across search, radio, display and field campaigns",
+      "Patient acquisition modelling",
+      "FullStory session-replay analysis with UX teams",
+      "Executive reporting on campaign ROI, patient admissions and service-line attribution",
     ],
     outcome:
       "Analytics connected digital behaviour with business and patient-acquisition objectives, helping stakeholders evaluate digital performance through measurable KPIs rather than isolated web metrics.",

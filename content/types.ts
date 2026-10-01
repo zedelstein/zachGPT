@@ -19,6 +19,9 @@ export type CapabilityId =
   | "healthcare"
   | "seo"
   | "experimentation"
+  | "attribution"
+  | "predictive"
+  | "ai"
   | "leadership";
 
 export interface Capability {
@@ -32,8 +35,7 @@ export interface Role {
   company: string;
   /** Compact label for narrow chart axes and table headers. */
   shortName: string;
-  /** True when `company` is a placeholder awaiting confirmation. See content/REVIEW.md. */
-  companyNeedsReview?: boolean;
+  location: string;
   title: string;
   /** Human-readable range shown in the UI, e.g. "June 2025 – Present". */
   dates: string;
@@ -41,12 +43,15 @@ export interface Role {
   start: number;
   /** Decimal year, or null for the current role. */
   end: number | null;
-  /** True when only the year is known and the range should be confirmed. */
-  datesNeedReview?: boolean;
   industry: string;
   /** One-line summary used on the timeline and in the resume list. */
   focus: string;
   responsibilities: string[];
+  /**
+   * Figures stated on Zach's own resumes. Nothing here is estimated or derived;
+   * if a role has no documented number, this array is empty rather than filled.
+   */
+  metrics?: string[];
   tools: string[];
   capabilities: CapabilityId[];
   /** Slugs of case studies drawn from this role. */
@@ -131,6 +136,12 @@ export interface WorkSample {
   skills: string[];
   /** Optional sanitized code/table body rendered in a <pre>. */
   code?: string;
+}
+
+export interface Education {
+  institution: string;
+  credential: string;
+  year: string;
 }
 
 export interface Stat {
